@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(test:*)",
+      "Bash(npm install:*)",
+      "Bash(mkdir:*)",
+      "Bash(tree:*)",
+      "Bash(npx expo start)",
+      "Bash(npx expo start:*)",
+      "Bash(taskkill:*)",
+      "Bash(nul)",
+      "Bash(tasklist:*)",
+      "Bash(findstr:*)",
+      "Bash(del nul:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
