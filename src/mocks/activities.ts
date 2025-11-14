@@ -38,7 +38,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p1',
       name: 'Arena Sport Club',
-      logo: 'https://ui-avatars.com/api/?name=Arena+Sport&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80',
     },
     location: {
       address: 'R. Quinze de Novembro, 40',
@@ -61,7 +61,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p2',
       name: 'Zen Yoga Studio',
-      logo: 'https://ui-avatars.com/api/?name=Zen+Yoga&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1545389336-cf090694435e?w=400&q=80',
     },
     location: {
       address: 'Av. Paulista, 1000',
@@ -84,7 +84,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p3',
       name: 'Escola de Música Harmonia',
-      logo: 'https://ui-avatars.com/api/?name=Harmonia&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&q=80',
     },
     location: {
       address: 'R. Augusta, 500',
@@ -107,7 +107,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p4',
       name: 'Aqua Sports',
-      logo: 'https://ui-avatars.com/api/?name=Aqua+Sports&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=400&q=80',
     },
     location: {
       address: 'R. dos Esportes, 200',
@@ -130,7 +130,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p5',
       name: 'Studio Corpo e Mente',
-      logo: 'https://ui-avatars.com/api/?name=Corpo+Mente&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80',
     },
     location: {
       address: 'Av. das Acácias, 150',
@@ -153,7 +153,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p6',
       name: 'Atelier Arte Livre',
-      logo: 'https://ui-avatars.com/api/?name=Arte+Livre&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400&q=80',
     },
     location: {
       address: 'R. das Artes, 88',
@@ -176,7 +176,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p7',
       name: 'Fight Academy',
-      logo: 'https://ui-avatars.com/api/?name=Fight+Academy&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&q=80',
     },
     location: {
       address: 'R. dos Lutadores, 45',
@@ -199,7 +199,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p8',
       name: 'Conservatório Musical',
-      logo: 'https://ui-avatars.com/api/?name=Conservatório&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=400&q=80',
     },
     location: {
       address: 'Av. Maestro, 320',
@@ -222,7 +222,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p9',
       name: 'Chef em Casa',
-      logo: 'https://ui-avatars.com/api/?name=Chef+Casa&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&q=80',
     },
     location: {
       address: 'R. Gastronômica, 77',
@@ -245,7 +245,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p10',
       name: 'Espaço Dança',
-      logo: 'https://ui-avatars.com/api/?name=Espaço+Dança&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=400&q=80',
     },
     location: {
       address: 'Av. dos Passos, 234',
@@ -268,7 +268,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p11',
       name: 'Runners Club',
-      logo: 'https://ui-avatars.com/api/?name=Runners+Club&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400&q=80',
     },
     location: {
       address: 'Parque da Cidade',
@@ -291,7 +291,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p12',
       name: 'Centro de Meditação',
-      logo: 'https://ui-avatars.com/api/?name=Meditação&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=80',
     },
     location: {
       address: 'R. da Paz, 12',
@@ -314,7 +314,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p13',
       name: 'Escola de Fotografia',
-      logo: 'https://ui-avatars.com/api/?name=Foto+School&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=400&q=80',
     },
     location: {
       address: 'Av. dos Fotógrafos, 567',
@@ -337,7 +337,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p14',
       name: 'Teatro Oficina',
-      logo: 'https://ui-avatars.com/api/?name=Teatro+Oficina&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1503095396549-807759245b35?w=400&q=80',
     },
     location: {
       address: 'R. dos Artistas, 99',
@@ -360,7 +360,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p15',
       name: 'Box Fit Academy',
-      logo: 'https://ui-avatars.com/api/?name=Box+Fit&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1517438476312-10d79c077509?w=400&q=80',
     },
     location: {
       address: 'R. dos Campeões, 333',
@@ -383,7 +383,7 @@ export const activities: Activity[] = [
     provider: {
       id: 'p16',
       name: 'Academia de Cordas',
-      logo: 'https://ui-avatars.com/api/?name=Academia+Cordas&background=C02AE5&color=fff',
+      logo: 'https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?w=400&q=80',
     },
     location: {
       address: 'Av. Musical, 888',

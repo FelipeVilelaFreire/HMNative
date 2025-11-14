@@ -2,15 +2,15 @@
 export const typography = {
   // Tamanhos de fonte
   fontSize: {
-    xs: 12,
-    sm: 14,
-    base: 16,      // Tamanho padrão do body
-    lg: 18,
-    xl: 20,
-    '2xl': 24,
-    '3xl': 30,
-    '4xl': 36,
-    '5xl': 48,
+    xs: 10,
+    sm: 12,
+    base: 14,      // Tamanho padrão do body
+    lg: 16,
+    xl: 18,
+    '2xl': 20,
+    '3xl': 24,
+    '4xl': 28,
+    '5xl': 36,
   },
 
   // Pesos de fonte

@@ -1,7 +1,7 @@
 import { View, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { LocationPicker } from './components';
-import { Carousel } from '@/src/components/Carousel';
+import { Carousel } from '@/src/components/ui';
 import { activities } from '@/src/mocks/activities';
 import { Activity } from '@/src/mocks/activities';
 import { styles } from './Home.styles';

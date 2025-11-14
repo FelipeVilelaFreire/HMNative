@@ -48,11 +48,14 @@ export default function ActivitiesModal({
   const scrollViewRef = useRef<ScrollView>(null);
   const scrollOffset = useSharedValue(0);
   const [scrollEnabled, setScrollEnabled] = useState(isMaximized);
+  const hasTriggeredSnap = useSharedValue(false);
 
   // Sincronizar scrollEnabled com isMaximized
   React.useEffect(() => {
     setScrollEnabled(isMaximized);
-  }, [isMaximized]);
+    // Reset flag quando modal muda de estado
+    hasTriggeredSnap.value = false;
+  }, [isMaximized, hasTriggeredSnap]);
 
   // Usar useCallback para memorizar a função e evitar recriações
   const handleCardPress = useCallback((activity: Activity) => {
@@ -97,10 +100,28 @@ export default function ActivitiesModal({
     return isMovingUp ? maxHeight : minHeight;
   };
 
+  // Callback para resetar scroll
+  const resetScrollPosition = useCallback(() => {
+    scrollViewRef.current?.scrollTo({ y: 0, animated: false });
+  }, []);
+
   // Handler para scroll do ScrollView
   const scrollHandler = useAnimatedScrollHandler({
     onScroll: (event) => {
       scrollOffset.value = event.contentOffset.y;
+
+      // Se está no topo e tentando scrollar mais para cima (overscroll negativo)
+      // Reduzir o modal de MAX para MID
+      if (event.contentOffset.y < -60 && isMaximized && !hasTriggeredSnap.value) {
+        hasTriggeredSnap.value = true;
+        runOnJS(snapToPosition)(midHeight);
+      }
+    },
+    onEndDrag: () => {
+      // Resetar scroll se ficou negativo
+      if (scrollOffset.value < 0) {
+        runOnJS(resetScrollPosition)();
+      }
     },
   });
 
@@ -134,6 +155,51 @@ export default function ActivitiesModal({
       runOnJS(enableScroll)();
     });
 
+  // Gesture para o header - permite arrastar quando maximizado (scroll no topo) ou quando em MID
+  const headerPanGesture = Gesture.Pan()
+    .activeOffsetY([-10, 10]) // Ativa arrastando para cima ou baixo
+    .failOffsetX([-20, 20])
+    .onBegin(() => {
+      // Se está maximizado, só permite se scroll está no topo
+      // Se está em MID ou MIN, sempre permite
+      if (isMaximized) {
+        if (scrollOffset.value <= 0) {
+          runOnJS(disableScroll)();
+        }
+      } else {
+        runOnJS(disableScroll)();
+      }
+    })
+    .onUpdate((event) => {
+      // Se está maximizado, só arrasta se scroll no topo e arrastando para baixo
+      if (isMaximized) {
+        if (scrollOffset.value <= 0 && event.translationY > 0) {
+          const newHeight = height - event.translationY;
+          const clampedHeight = Math.max(minHeight, Math.min(maxHeight, newHeight));
+          runOnJS(onDrag)(clampedHeight);
+        }
+      } else {
+        // Se não está maximizado (MID ou MIN), permite arrastar livremente
+        const newHeight = height - event.translationY;
+        const clampedHeight = Math.max(minHeight, Math.min(maxHeight, newHeight));
+        runOnJS(onDrag)(clampedHeight);
+      }
+    })
+    .onEnd((event) => {
+      if (isMaximized) {
+        if (scrollOffset.value <= 0) {
+          const targetHeight = getSnapPoint(height, event.velocityY);
+          runOnJS(snapToPosition)(targetHeight);
+          runOnJS(enableScroll)();
+        }
+      } else {
+        // Sempre faz snap quando não está maximizado
+        const targetHeight = getSnapPoint(height, event.velocityY);
+        runOnJS(snapToPosition)(targetHeight);
+        runOnJS(enableScroll)();
+      }
+    });
+
   const animatedStyle = useAnimatedStyle(() => ({
     height: withSpring(height, SPRING_CONFIG),
   }));
@@ -142,6 +208,13 @@ export default function ActivitiesModal({
   const handleAnimatedStyle = useAnimatedStyle(() => ({
     opacity: withTiming(isMaximized ? 0 : 1, { duration: 300 }),
     height: withTiming(isMaximized ? 0 : 29, { duration: 300 }),
+    paddingTop: withTiming(isMaximized ? 0 : 12, { duration: 300 }),
+    paddingBottom: withTiming(isMaximized ? 0 : 12, { duration: 300 }),
+  }));
+
+  // Animação para o header - aumenta paddingTop quando maximizado
+  const headerAnimatedStyle = useAnimatedStyle(() => ({
+    paddingTop: withTiming(isMaximized ? 16 : 4, { duration: 300 }),
   }));
 
   return (
@@ -164,11 +237,6 @@ export default function ActivitiesModal({
         </Animated.View>
       </GestureDetector>
 
-      {/* Título fixo fora do scroll */}
-      <View style={styles.header}>
-        <Text style={styles.title}>Mais de {activitiesCount} atividades</Text>
-      </View>
-
       {/* Área de conteúdo com scroll quando maximizado */}
       <Animated.ScrollView
         ref={scrollViewRef}
@@ -181,8 +249,15 @@ export default function ActivitiesModal({
         nestedScrollEnabled={true}
         onScroll={scrollHandler}
       >
+        {/* Título dentro do scroll - scroll junto com os cards */}
+        <GestureDetector gesture={headerPanGesture}>
+          <Animated.View style={[styles.header, headerAnimatedStyle]}>
+            <Text style={styles.title}>Mais de {activitiesCount} atividades</Text>
+          </Animated.View>
+        </GestureDetector>
+
         {activities.slice(0, 4).map((activity, index) => (
-          <View key={activity.id} style={{ marginBottom: index < 3 ? 16 : 0 }}>
+          <View key={activity.id} style={{ marginBottom: index < 3 ? 16 : 32 }}>
             <ActivityCard
               activity={activity}
               variant="big"

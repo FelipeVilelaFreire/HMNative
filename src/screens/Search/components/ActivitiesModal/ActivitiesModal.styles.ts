@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '@/src/theme';
+import { colors, typography } from '@/src/theme';
 
 export const styles = StyleSheet.create({
   container: {
@@ -44,14 +44,14 @@ export const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 16,
-    paddingBottom: 12,
+    paddingTop: 4,
+    paddingBottom: 16,
     alignItems: 'center',
     backgroundColor: colors.white,
-    zIndex: 10,
   },
   title: {
-    fontSize: 14,
-    fontWeight: '600',
+    fontSize: typography.fontSize.sm,
+    fontWeight: typography.fontWeight.semibold,
     color: colors.secondary,
   },
   content: {
@@ -60,7 +60,6 @@ export const styles = StyleSheet.create({
   cardsContainer: {
     paddingHorizontal: 16,
     paddingBottom: 16,
-    paddingTop: 4,
     alignItems: 'center',
   },
 });

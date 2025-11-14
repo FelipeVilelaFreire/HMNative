@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '@/src/theme';
+import { colors, typography } from '@/src/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    paddingTop: 80,
+    paddingTop: 65,
     paddingBottom: 16,
     paddingHorizontal: 16,
     backgroundColor: 'rgba(250, 250, 250, 0.5)',
@@ -38,26 +38,15 @@ export const styles = StyleSheet.create({
     marginRight: 12,
   },
   searchText: {
-    fontSize: 14,
+    fontSize: typography.fontSize.sm,
     color: colors.secondary,
-    fontWeight: '600',
+    fontWeight: typography.fontWeight.semibold,
     marginLeft: 12,
   },
   filterButton: {
     padding: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.white,
     borderRadius: 12,
-    borderWidth: 1,
-    borderColor: colors.gray200,
-    shadowColor: colors.black,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 3,
   },
 });

@@ -1,11 +1,35 @@
-import { View, Text, StyleSheet } from 'react-native';
-import { colors, textStyles } from '@/src/theme';
+import { View, StyleSheet, ScrollView, Animated } from 'react-native';
+import { useRef } from 'react';
+import { colors } from '@/src/theme';
+import { ProfileHeader, UserDataCard } from './components';
+import { HobbiesCard, ScheduleCard } from '@/src/components/cards';
+import { currentUser } from '@/src/mocks/user';
 
 export default function Profile() {
+  const scrollY = useRef(new Animated.Value(0)).current;
+
+  const handleNotificationPress = () => {
+    console.log('Notificações pressionado');
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Perfil</Text>
-      <Text style={styles.body}>Seu perfil - Em construção</Text>
+      <ProfileHeader onNotificationPress={handleNotificationPress} scrollY={scrollY} />
+
+      <Animated.ScrollView
+        style={styles.content}
+        contentContainerStyle={styles.contentContainer}
+        showsVerticalScrollIndicator={false}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+          { useNativeDriver: false }
+        )}
+        scrollEventThrottle={16}
+      >
+        <UserDataCard user={currentUser} />
+        <HobbiesCard />
+        <ScheduleCard />
+      </Animated.ScrollView>
     </View>
   );
 }
@@ -13,18 +37,15 @@ export default function Profile() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: colors.background,
-    padding: 20,
   },
-  title: {
-    ...textStyles.h2,
-    color: colors.primary,
-    marginBottom: 16,
+  content: {
+    flex: 1,
   },
-  body: {
-    ...textStyles.body1,
-    color: colors.gray600,
+  contentContainer: {
+    paddingHorizontal: 16,
+    paddingTop: 0,
+    paddingBottom: 32,
+    gap: 16,
   },
 });

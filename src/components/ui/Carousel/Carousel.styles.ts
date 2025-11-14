@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '@/src/theme';
+import { colors, typography } from '@/src/theme';
 
 export const styles = StyleSheet.create({
   carouselContainer: {},
   title: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: typography.fontSize.lg,
+    fontWeight: typography.fontWeight.semibold,
     color: colors.secondary,
     paddingHorizontal: 16,
     marginBottom: 10,

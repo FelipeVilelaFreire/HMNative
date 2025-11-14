@@ -16,9 +16,9 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: colors.white,
           borderTopWidth: 0, // Remove borda padrão
-          height: 75,
-          paddingBottom: 10,
-          paddingTop: 10,
+          height: 90,
+          paddingBottom: 20,
+          paddingTop: 12,
           ...footerShadow, // Aplica sombra customizada
         },
         tabBarLabelStyle: {

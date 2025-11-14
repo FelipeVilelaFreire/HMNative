@@ -1,6 +1,6 @@
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
-import { colors } from '@/src/theme';
+import { colors, typography } from '@/src/theme';
 import { ActivityCard } from '@/src/components/cards/ActivityCard';
 import { activities } from '@/src/mocks/activities';
 
@@ -55,20 +55,20 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   header: {
-    paddingTop: 50,
+    paddingTop: 65,
     paddingHorizontal: 16,
     marginBottom: 24,
     alignItems: 'center',
   },
   title: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: typography.fontSize.xl,
+    fontWeight: typography.fontWeight.bold,
     color: colors.secondary,
     marginBottom: 4,
   },
   subtitle: {
-    fontSize: 14,
-    fontWeight: '400',
+    fontSize: typography.fontSize.sm,
+    fontWeight: typography.fontWeight.regular,
     color: colors.secondary,
   },
   listContainer: {
@@ -76,10 +76,11 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
   },
   row: {
+    gap: 24,
     marginBottom: 24,
+    justifyContent: 'center',
   },
   cardWrapper: {
-    width: '48%',
-    marginHorizontal: '1%',
+    alignItems: 'center',
   },
 });

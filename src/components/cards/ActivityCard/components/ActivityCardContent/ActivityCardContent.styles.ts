@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, textStyles } from '@/src/theme';
+import { colors, typography } from '@/src/theme';
 
 // Tamanhos dos ícones
 export const ICON_SIZE_18 = 18;
@@ -20,8 +20,8 @@ export const styles = StyleSheet.create({
     marginBottom: 8,
   },
   title: {
-    fontSize: 22,
-    fontWeight: '500',
+    fontSize: typography.fontSize.xl,
+    fontWeight: typography.fontWeight.medium,
     color: colors.secondary,
     flex: 1,
     marginRight: 8,
@@ -31,9 +31,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   ratingText: {
-    fontSize: 15,
+    fontSize: typography.fontSize.sm,
     color: colors.secondary,
-    fontWeight: '500',
+    fontWeight: typography.fontWeight.medium,
     marginLeft: 6,
   },
   locationRow: {
@@ -42,12 +42,12 @@ export const styles = StyleSheet.create({
     marginBottom: 8,
   },
   locationName: {
-    fontSize: 16,
+    fontSize: typography.fontSize.base,
     color: colors.secondary,
     marginLeft: 6,
   },
   distance: {
-    fontSize: 15,
+    fontSize: typography.fontSize.sm,
     color: colors.gray500,
     marginLeft: 16,
   },
@@ -61,7 +61,7 @@ export const styles = StyleSheet.create({
     marginRight: 16,
   },
   scheduleText: {
-    fontSize: 14,
+    fontSize: typography.fontSize.sm,
     color: colors.secondary,
     marginLeft: 6,
   },
@@ -70,7 +70,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   priceText: {
-    fontSize: 14,
+    fontSize: typography.fontSize.sm,
     color: colors.secondary,
     marginLeft: 6,
   },
@@ -81,7 +81,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 6,
   },
   titleMedium: {
-    fontSize: 12,
+    fontSize: typography.fontSize.xs,
   },
   ratingTextMedium: {
     fontSize: 10,

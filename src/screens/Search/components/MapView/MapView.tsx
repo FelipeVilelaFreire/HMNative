@@ -6,8 +6,9 @@ export default function MapView() {
   return (
     <View style={styles.container}>
       <Image
-        source={{ uri: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80' }}
+        source={require('@/assets/images/Maps.png')}
         style={styles.mapImage}
+        resizeMode="cover"
       />
     </View>
   );

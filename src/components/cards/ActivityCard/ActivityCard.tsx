@@ -29,6 +29,7 @@ function ActivityCard({
       <ActivityCardImage
         imageUrl={activity.coverImage}
         activityName={activity.name}
+        activityId={activity.id}
         variant={variant}
       />
 

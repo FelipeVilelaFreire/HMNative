@@ -3,8 +3,8 @@ import { colors } from '@/src/theme';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
-// Big Card: 92% da largura (16px de padding lateral)
-const BIG_CARD_WIDTH = screenWidth - 32;
+// Big Card: com 24px de padding lateral (48px total)
+const BIG_CARD_WIDTH = screenWidth - 48;
 const BIG_CARD_HEIGHT = screenHeight * 0.5;
 
 // Medium Card: 40% da largura, 28% da altura
@@ -19,14 +19,14 @@ export const styles = StyleSheet.create({
     overflow: 'hidden',
   },
 
-  // Variant: Big (92% largura, 50% altura)
+  // Variant: Big (screenWidth - 48, 50% altura)
   cardBig: {
     width: BIG_CARD_WIDTH,
     height: BIG_CARD_HEIGHT,
-    marginHorizontal: 16,
+    marginHorizontal: 24,
   },
 
-  // Variant: Medium (40% largura, 28% altura)
+  // Variant: Medium (largura fixa calculada, 28% altura)
   cardMedium: {
     width: MEDIUM_CARD_WIDTH,
     height: MEDIUM_CARD_HEIGHT,

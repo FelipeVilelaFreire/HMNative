@@ -1,3 +1,1 @@
-import ActivityDetails from '@/src/screens/ActivityDetails';
-
-export default ActivityDetails;
+export { default } from '@/src/screens/ActivityDetails';

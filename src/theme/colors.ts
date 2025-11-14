@@ -11,6 +11,7 @@ export const colors = {
   black: '#000000',
 
   // Tons de cinza (para textos secundários, borders, etc)
+  gray50: '#FAFAFA',
   gray100: '#F5F5F5',
   gray200: '#E5E5E5',
   gray300: '#D4D4D4',
@@ -29,6 +30,8 @@ export const colors = {
 
   // Cores de UI
   star: '#F8DB00',              // Amarelo da estrela de avaliação
-  schedule: 'rgba(255, 66, 66, 0.83)',  // Vermelho para horário (FF4242 com 83%)
+  schedule: '#98Aaec',  // Azul para horário
   price: 'rgba(0, 201, 54, 0.8)',       // Verde para preço (00C936 com 80%)
+  hobby: 'hsla(136.21, 37.2%, 44.3%, 0.79)', // Verde para hobbies
+  iconBackground: 'rgba(217, 217, 217, 0.73)', // Background dos ícones de header (#D9D9D9 com 73% opacity)
 };
