@@ -13,7 +13,11 @@
       "Bash(tasklist:*)",
       "Bash(findstr:*)",
       "Bash(del nul:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(cat:*)",
+      "Bash(dir \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\src\\components\\features\\ProviderDetail\\components\\ProviderDetailImage\")",
+      "Bash(if exist .expo rmdir /s /q .expo)",
+      "Bash(if exist node_modules.cache rmdir /s /q node_modules.cache)"
     ],
     "deny": [],
     "ask": []

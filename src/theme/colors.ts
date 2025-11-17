@@ -33,5 +33,7 @@ export const colors = {
   schedule: '#98Aaec',  // Azul para horário
   price: 'rgba(0, 201, 54, 0.8)',       // Verde para preço (00C936 com 80%)
   hobby: 'hsla(136.21, 37.2%, 44.3%, 0.79)', // Verde para hobbies
+  phone: '#508DFF',             // Azul para telefone
+  website: '#915D06',           // Marrom/laranja para website
   iconBackground: 'rgba(217, 217, 217, 0.73)', // Background dos ícones de header (#D9D9D9 com 73% opacity)
 };

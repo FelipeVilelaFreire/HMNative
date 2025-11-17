@@ -188,4 +188,228 @@ export const hobbies: Hobby[] = [
     icon: 'fish',
     color: '#00B894',
   },
+
+  // Mais Esportes (categoryId: '1', color: '#FF6B6B')
+  {
+    id: '25',
+    name: 'Tênis',
+    categoryId: '1',
+    icon: 'table-tennis',
+    color: '#FF6B6B',
+  },
+  {
+    id: '26',
+    name: 'Skate',
+    categoryId: '1',
+    icon: 'skating',
+    color: '#FF6B6B',
+  },
+  {
+    id: '27',
+    name: 'Ciclismo',
+    categoryId: '1',
+    icon: 'biking',
+    color: '#FF6B6B',
+  },
+  {
+    id: '28',
+    name: 'Yoga',
+    categoryId: '1',
+    icon: 'spa',
+    color: '#FF6B6B',
+  },
+  {
+    id: '29',
+    name: 'Surf',
+    categoryId: '1',
+    icon: 'water',
+    color: '#FF6B6B',
+  },
+  {
+    id: '30',
+    name: 'Boxe',
+    categoryId: '1',
+    icon: 'fist-raised',
+    color: '#FF6B6B',
+  },
+
+  // Mais Artes (categoryId: '2', color: '#4ECDC4')
+  {
+    id: '31',
+    name: 'Teatro',
+    categoryId: '2',
+    icon: 'theater-masks',
+    color: '#4ECDC4',
+  },
+  {
+    id: '32',
+    name: 'Dança',
+    categoryId: '2',
+    icon: 'user-friends',
+    color: '#4ECDC4',
+  },
+  {
+    id: '33',
+    name: 'Graffiti',
+    categoryId: '2',
+    icon: 'spray-can',
+    color: '#4ECDC4',
+  },
+  {
+    id: '34',
+    name: 'Cinema',
+    categoryId: '2',
+    icon: 'film',
+    color: '#4ECDC4',
+  },
+
+  // Mais Música (categoryId: '3', color: '#95E1D3')
+  {
+    id: '35',
+    name: 'Bateria',
+    categoryId: '3',
+    icon: 'drum',
+    color: '#95E1D3',
+  },
+  {
+    id: '36',
+    name: 'Violino',
+    categoryId: '3',
+    icon: 'music',
+    color: '#95E1D3',
+  },
+
+  // Mais Tecnologia (categoryId: '4', color: '#6C5CE7')
+  {
+    id: '37',
+    name: 'Edição de Vídeo',
+    categoryId: '4',
+    icon: 'video',
+    color: '#6C5CE7',
+  },
+  {
+    id: '38',
+    name: '3D Modeling',
+    categoryId: '4',
+    icon: 'cube',
+    color: '#6C5CE7',
+  },
+  {
+    id: '39',
+    name: 'Streaming',
+    categoryId: '4',
+    icon: 'broadcast-tower',
+    color: '#6C5CE7',
+  },
+
+  // Mais Gastronomia (categoryId: '5', color: '#FDCB6E')
+  {
+    id: '40',
+    name: 'Mixologia',
+    categoryId: '5',
+    icon: 'cocktail',
+    color: '#FDCB6E',
+  },
+  {
+    id: '41',
+    name: 'Churrasco',
+    categoryId: '5',
+    icon: 'fire',
+    color: '#FDCB6E',
+  },
+  {
+    id: '42',
+    name: 'Sommelier',
+    categoryId: '5',
+    icon: 'wine-glass',
+    color: '#FDCB6E',
+  },
+
+  // Mais Natureza (categoryId: '6', color: '#00B894')
+  {
+    id: '43',
+    name: 'Observação de Aves',
+    categoryId: '6',
+    icon: 'dove',
+    color: '#00B894',
+  },
+  {
+    id: '44',
+    name: 'Mergulho',
+    categoryId: '6',
+    icon: 'swimmer',
+    color: '#00B894',
+  },
+  {
+    id: '45',
+    name: 'Escalada',
+    categoryId: '6',
+    icon: 'mountain',
+    color: '#00B894',
+  },
+
+  // Leitura & Escrita (categoryId: '7', color: '#A29BFE')
+  {
+    id: '46',
+    name: 'Leitura',
+    categoryId: '7',
+    icon: 'book',
+    color: '#A29BFE',
+  },
+  {
+    id: '47',
+    name: 'Escrita',
+    categoryId: '7',
+    icon: 'pen',
+    color: '#A29BFE',
+  },
+  {
+    id: '48',
+    name: 'Poesia',
+    categoryId: '7',
+    icon: 'feather',
+    color: '#A29BFE',
+  },
+
+  // Jogos & Tabuleiro (categoryId: '8', color: '#FD79A8')
+  {
+    id: '49',
+    name: 'Xadrez',
+    categoryId: '8',
+    icon: 'chess',
+    color: '#FD79A8',
+  },
+  {
+    id: '50',
+    name: 'RPG',
+    categoryId: '8',
+    icon: 'dice-d20',
+    color: '#FD79A8',
+  },
+  {
+    id: '51',
+    name: 'Jogos de Tabuleiro',
+    categoryId: '8',
+    icon: 'dice',
+    color: '#FD79A8',
+  },
+];
+
+// Categorias de hobbies
+export interface Category {
+  id: string;
+  name: string;
+  icon: string;
+  color: string;
+}
+
+export const categories: Category[] = [
+  { id: '1', name: 'Esportes', icon: 'running', color: '#FF6B6B' },
+  { id: '2', name: 'Artes', icon: 'palette', color: '#4ECDC4' },
+  { id: '3', name: 'Música', icon: 'music', color: '#95E1D3' },
+  { id: '4', name: 'Tecnologia', icon: 'laptop', color: '#6C5CE7' },
+  { id: '5', name: 'Gastronomia', icon: 'utensils', color: '#FDCB6E' },
+  { id: '6', name: 'Natureza', icon: 'leaf', color: '#00B894' },
+  { id: '7', name: 'Leitura', icon: 'book', color: '#A29BFE' },
+  { id: '8', name: 'Jogos', icon: 'dice', color: '#FD79A8' },
 ];

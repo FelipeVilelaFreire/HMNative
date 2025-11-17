@@ -12,6 +12,7 @@ interface ActivityDetailProps {
   onSave?: (activity: Activity) => void;
   onCancel?: () => void;
   onBack?: () => void;
+  onProviderPress?: () => void; // Callback para quando clicar no provider
 }
 
 export default function ActivityDetail({
@@ -22,6 +23,7 @@ export default function ActivityDetail({
   onSave,
   onCancel,
   onBack,
+  onProviderPress,
 }: ActivityDetailProps) {
   // Animated value para o scroll da tela
   const scrollY = useRef(new Animated.Value(0)).current;
@@ -54,7 +56,7 @@ export default function ActivityDetail({
           <ActivityDetailImage imageUrl={activity.coverImage} activityId={activity.id} />
 
           {/* Modal da atividade - parte do scroll */}
-          <ActivityModal activity={activity} />
+          <ActivityModal activity={activity} onProviderPress={onProviderPress} />
         </Animated.ScrollView>
 
         {/* Header fixo por cima de tudo */}

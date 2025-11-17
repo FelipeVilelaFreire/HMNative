@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '@/src/theme';
 import { ICONS } from '@/src/constants';
@@ -10,13 +10,15 @@ interface ActivityProvidedByCardProps {
   providerAvatar: string;
   rating: number;
   reviewsCount: number;
+  onPress?: () => void;
 }
 
 export default function ActivityProvidedByCard({
   providerName,
   providerAvatar,
   rating,
-  reviewsCount
+  reviewsCount,
+  onPress
 }: ActivityProvidedByCardProps) {
   // Função para renderizar as estrelas
   const renderStars = () => {
@@ -53,7 +55,11 @@ export default function ActivityProvidedByCard({
     <View style={styles.container}>
       <Text style={styles.sectionTitle}>Fornecido por</Text>
 
-      <View style={styles.card}>
+      <TouchableOpacity
+        style={styles.card}
+        onPress={onPress}
+        activeOpacity={0.7}
+      >
         {/* Seção da Imagem - 40% */}
         <View style={styles.imageSection}>
           <Image
@@ -84,7 +90,7 @@ export default function ActivityProvidedByCard({
             </View>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }

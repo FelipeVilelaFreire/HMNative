@@ -1,21 +1,26 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { styles } from './ActivityProviderCard.styles';
 
 interface ActivityProviderCardProps {
   providerName: string;
   providerAvatar: string;
+  onPress?: () => void;
 }
 
-export default function ActivityProviderCard({ providerName, providerAvatar }: ActivityProviderCardProps) {
+export default function ActivityProviderCard({ providerName, providerAvatar, onPress }: ActivityProviderCardProps) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={onPress}
+      activeOpacity={0.7}
+    >
       <Image
         source={{ uri: providerAvatar }}
         style={styles.avatar}
         resizeMode="cover"
       />
       <Text style={styles.providerName}>{providerName}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }

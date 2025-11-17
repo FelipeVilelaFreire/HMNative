@@ -7,9 +7,10 @@ import { styles } from './ActivityModal.styles';
 
 interface ActivityModalProps {
   activity: Activity;
+  onProviderPress?: () => void;
 }
 
-export default function ActivityModal({ activity }: ActivityModalProps) {
+export default function ActivityModal({ activity, onProviderPress }: ActivityModalProps) {
   // Filtrar avaliações da atividade atual
   const reviews = activityReviews.filter(review => review.activityId === activity.id);
 
@@ -43,6 +44,7 @@ export default function ActivityModal({ activity }: ActivityModalProps) {
           <ActivityProviderCard
             providerName={activity.provider.name}
             providerAvatar={activity.provider.logo}
+            onPress={onProviderPress}
           />
         </View>
 
@@ -68,6 +70,7 @@ export default function ActivityModal({ activity }: ActivityModalProps) {
             providerAvatar={activity.provider.logo}
             rating={4.8}
             reviewsCount={342}
+            onPress={onProviderPress}
           />
         </View>
 

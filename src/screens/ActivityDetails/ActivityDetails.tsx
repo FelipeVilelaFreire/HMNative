@@ -18,12 +18,20 @@ export default function ActivityDetails() {
     router.back();
   };
 
+  const handleProviderPress = () => {
+    // Navegar para o ProviderDetail
+    if (activity.provider.id) {
+      router.push(`/provider/${activity.provider.id}`);
+    }
+  };
+
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
       <ActivityDetail
         activity={activity}
         onBack={handleBack}
+        onProviderPress={handleProviderPress}
       />
     </>
   );
