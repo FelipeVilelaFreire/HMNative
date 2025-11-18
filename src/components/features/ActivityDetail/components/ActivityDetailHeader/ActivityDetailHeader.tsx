@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, Animated } from 'react-native';
+import { View, TouchableOpacity, Animated, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '@/src/theme';
 import { styles, ICON_SIZE } from './ActivityDetailHeader.styles';
@@ -9,13 +9,23 @@ interface ActivityDetailHeaderProps {
   isFavorited?: boolean;
   onFavoriteToggle?: (isFavorited: boolean) => void;
   scrollY?: Animated.Value;
+  isProvider?: boolean;
+  onEditPress?: () => void;
+  isEditing?: boolean;
+  isCreating?: boolean;
+  onSave?: () => void;
 }
 
 export default function ActivityDetailHeader({
   onBackPress,
   isFavorited: initialFavorited = false,
   onFavoriteToggle,
-  scrollY
+  scrollY,
+  isProvider = false,
+  onEditPress,
+  isEditing = false,
+  isCreating = false,
+  onSave
 }: ActivityDetailHeaderProps) {
   const [isFavorited, setIsFavorited] = useState(initialFavorited);
 
@@ -66,20 +76,49 @@ export default function ActivityDetailHeader({
         </Animated.View>
       </TouchableOpacity>
 
-      {/* Botão Favorito */}
-      <TouchableOpacity
-        style={styles.iconButton}
-        onPress={handleFavoritePress}
-        activeOpacity={0.7}
-      >
-        <Animated.View style={[styles.iconBackground, { backgroundColor: iconBackgroundColor }]}>
-          <Ionicons
-            name={isFavorited ? 'heart' : 'heart-outline'}
-            size={ICON_SIZE}
-            color={isFavorited ? colors.error : colors.black}
-          />
-        </Animated.View>
-      </TouchableOpacity>
+      {/* Botão Favorito, Editar ou Salvar (condicional) */}
+      {isProvider ? (
+        <TouchableOpacity
+          style={styles.iconButton}
+          onPress={isCreating ? onSave : onEditPress}
+          activeOpacity={0.7}
+        >
+          <View style={[
+            styles.editButton,
+            {
+              backgroundColor: isCreating ? colors.success : 'rgb(217, 217, 217)',
+              borderWidth: isCreating ? 2 : 0,
+              borderColor: isCreating ? colors.success : 'transparent',
+            }
+          ]}>
+            <Ionicons
+              name={isCreating ? "checkmark-outline" : "create-outline"}
+              size={ICON_SIZE}
+              color={isCreating ? colors.white : (isEditing ? colors.primary : colors.secondary)}
+            />
+            <Text style={[
+              styles.editButtonText,
+              { color: isCreating ? colors.white : (isEditing ? colors.primary : colors.secondary) }
+            ]}>
+              {isCreating ? 'Salvar' : (isEditing ? 'Editando' : 'Editar')}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity
+          style={styles.iconButton}
+          onPress={handleFavoritePress}
+          activeOpacity={0.7}
+        >
+          <Animated.View style={[styles.iconBackground, { backgroundColor: iconBackgroundColor }]}>
+            <Ionicons
+              name={isFavorited ? 'heart' : 'heart-outline'}
+              size={ICON_SIZE}
+              color={isFavorited ? colors.error : colors.black}
+            />
+          </Animated.View>
+        </TouchableOpacity>
+      )}
     </Animated.View>
   );
 }

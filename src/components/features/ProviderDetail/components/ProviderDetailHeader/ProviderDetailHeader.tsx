@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, Animated } from 'react-native';
+import { View, TouchableOpacity, Animated, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '@/src/theme';
 import { styles } from './ProviderDetailHeader.styles';
@@ -8,12 +8,16 @@ interface ProviderDetailHeaderProps {
   onBackPress?: () => void;
   scrollY: Animated.Value;
   isOwner?: boolean; // Se o usuário é o dono do provider
+  onEditPress?: () => void; // Callback para editar o provider
+  isEditing?: boolean; // Se está em modo de edição
 }
 
 export default function ProviderDetailHeader({
   onBackPress,
   scrollY,
   isOwner = false,
+  onEditPress,
+  isEditing = false,
 }: ProviderDetailHeaderProps) {
   // Animação do background conforme o scroll
   const backgroundColor = scrollY.interpolate({
@@ -43,10 +47,24 @@ export default function ProviderDetailHeader({
       {/* Botão Editar (apenas se for o dono) */}
       {isOwner && (
         <TouchableOpacity
-          style={styles.editButton}
+          style={[
+            styles.editButton,
+            { borderColor: isEditing ? colors.primary : colors.gray300 }
+          ]}
           activeOpacity={0.7}
+          onPress={onEditPress}
         >
-          <Ionicons name="create-outline" size={24} color={colors.secondary} />
+          <Ionicons
+            name="create-outline"
+            size={20}
+            color={isEditing ? colors.primary : colors.secondary}
+          />
+          <Text style={[
+            styles.editButtonText,
+            { color: isEditing ? colors.primary : colors.secondary }
+          ]}>
+            Editar
+          </Text>
         </TouchableOpacity>
       )}
     </Animated.View>

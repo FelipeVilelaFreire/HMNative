@@ -10,20 +10,30 @@ interface ProviderLocationCardProps {
   neighborhood: string;
   city: string;
   distance: string;
+  isProviderView?: boolean;
+  isEditing?: boolean;
 }
 
-export default function ProviderLocationCard({ address, neighborhood, city, distance }: ProviderLocationCardProps) {
+export default function ProviderLocationCard({
+  address,
+  neighborhood,
+  city,
+  distance,
+  isProviderView = false,
+  isEditing = false
+}: ProviderLocationCardProps) {
   const fullLocation = `${address}, ${neighborhood} - ${city}`;
+  const title = isProviderView ? 'Localização' : 'Veja onde é';
 
   return (
     <View style={styles.container}>
       {/* Título da seção */}
-      <Text style={styles.sectionTitle}>Veja onde é</Text>
+      <Text style={styles.sectionTitle}>{title}</Text>
 
       {/* Localização com ícone */}
       <View style={styles.locationRow}>
         <Ionicons name={ICONS.location} size={20} color={colors.primary} />
-        <Text style={styles.locationText}>{fullLocation} - {distance}</Text>
+        <Text style={[styles.locationText, isEditing && styles.editableText]}>{fullLocation} - {distance}</Text>
       </View>
 
       {/* Mapa */}

@@ -23,7 +23,6 @@ export const styles = StyleSheet.create({
   cardBig: {
     width: BIG_CARD_WIDTH,
     height: BIG_CARD_HEIGHT,
-    marginHorizontal: 24,
   },
 
   // Variant: Medium (largura fixa calculada, 28% altura)

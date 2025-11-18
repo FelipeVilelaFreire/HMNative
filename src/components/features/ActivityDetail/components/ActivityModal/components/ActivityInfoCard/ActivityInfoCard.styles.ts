@@ -17,4 +17,16 @@ export const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.medium,
     color: colors.secondary,
   },
+  input: {
+    flex: 1,
+    fontSize: typography.fontSize.base,
+    fontWeight: typography.fontWeight.medium,
+    color: colors.secondary,
+    borderWidth: 1.5,
+    borderColor: colors.primary,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: colors.white,
+  },
 });

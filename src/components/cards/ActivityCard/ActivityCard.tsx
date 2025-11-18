@@ -10,12 +10,14 @@ interface ActivityCardProps {
   activity: Activity;
   variant?: ActivityCardVariant;
   onPress?: () => void;
+  spaceName?: string;
 }
 
 function ActivityCard({
   activity,
   variant = 'big',
-  onPress
+  onPress,
+  spaceName
 }: ActivityCardProps) {
   return (
     <TouchableOpacity
@@ -33,7 +35,7 @@ function ActivityCard({
         variant={variant}
       />
 
-      <ActivityCardContent activity={activity} variant={variant} />
+      <ActivityCardContent activity={activity} variant={variant} spaceName={spaceName} />
     </TouchableOpacity>
   );
 }

@@ -1,0 +1,110 @@
+import { StyleSheet } from 'react-native';
+import { colors, typography } from '@/src/theme';
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 8,
+    maxHeight: 600,
+  },
+  title: {
+    fontSize: typography.fontSize['2xl'],
+    fontWeight: typography.fontWeight.bold,
+    color: colors.secondary,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  description: {
+    fontSize: typography.fontSize.sm,
+    fontWeight: typography.fontWeight.regular,
+    color: colors.gray600,
+    textAlign: 'center',
+    marginBottom: 24,
+    paddingHorizontal: 16,
+  },
+  scrollView: {
+    flex: 1,
+    maxHeight: 400,
+  },
+  providersContainer: {
+    paddingHorizontal: 4,
+    paddingBottom: 16,
+  },
+  providerCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: colors.gray200,
+    borderLeftWidth: 5,
+    padding: 16,
+    marginBottom: 12,
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  iconContainer: {
+    width: 56,
+    height: 56,
+    borderRadius: 8,
+    backgroundColor: colors.primaryLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
+  },
+  providerImage: {
+    width: 56,
+    height: 56,
+    borderRadius: 8,
+    marginRight: 12,
+    backgroundColor: colors.gray200,
+  },
+  providerInfo: {
+    flex: 1,
+  },
+  providerName: {
+    fontSize: typography.fontSize.base,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.secondary,
+    marginBottom: 6,
+  },
+  roleBadge: {
+    alignSelf: 'flex-start',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 4,
+    borderWidth: 1,
+    marginBottom: 6,
+  },
+  roleBadgeText: {
+    fontSize: typography.fontSize.xs,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.secondary,
+  },
+  providerAddress: {
+    fontSize: typography.fontSize.xs,
+    fontWeight: typography.fontWeight.regular,
+    color: colors.gray500,
+  },
+  buttonContainer: {
+    paddingTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: colors.gray200,
+  },
+  cancelButton: {
+    paddingVertical: 14,
+    paddingHorizontal: 24,
+    borderRadius: 12,
+    backgroundColor: colors.gray200,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  cancelButtonText: {
+    fontSize: typography.fontSize.base,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.secondary,
+  },
+});

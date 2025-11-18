@@ -17,4 +17,16 @@ export const styles = StyleSheet.create({
     color: colors.gray600,
     lineHeight: 22,
   },
+  input: {
+    fontSize: typography.fontSize.base,
+    fontWeight: typography.fontWeight.regular,
+    color: colors.secondary,
+    borderWidth: 1.5,
+    borderColor: colors.primary,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: colors.white,
+    minHeight: 100,
+  },
 });

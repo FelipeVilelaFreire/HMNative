@@ -9,9 +9,10 @@ import { styles, ICON_SIZE_18, ICON_SIZE_20 } from './ActivityCardContent.styles
 interface ActivityCardContentProps {
   activity: Activity;
   variant?: ActivityCardVariant;
+  spaceName?: string;
 }
 
-export default function ActivityCardContent({ activity, variant = 'big' }: ActivityCardContentProps) {
+export default function ActivityCardContent({ activity, variant = 'big', spaceName }: ActivityCardContentProps) {
   // Tamanhos proporcionais para medium (aproximadamente 65% do big)
   const iconStar = variant === 'big' ? ICON_SIZE_18 : 12;
   const iconLocation = variant === 'big' ? ICON_SIZE_20 : 13;
@@ -49,6 +50,13 @@ export default function ActivityCardContent({ activity, variant = 'big' }: Activ
           </View>
         )}
       </View>
+
+      {spaceName && (
+        <View style={styles.spaceContainer}>
+          <Ionicons name="business-outline" size={iconSmall} color={colors.space} />
+          <Text style={[styles.spaceText, variant === 'medium' && styles.spaceTextMedium]}>{spaceName}</Text>
+        </View>
+      )}
     </View>
   );
 }

@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { colors } from '@/src/theme';
+import { colors, typography } from '@/src/theme';
 
 const { height: screenHeight } = Dimensions.get('window');
 const AVATAR_SIZE = screenHeight * 0.18;
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   avatarContainer: {
-    // Sem sombra
+    position: 'relative',
   },
   avatar: {
     width: AVATAR_SIZE,
@@ -26,5 +26,26 @@ export const styles = StyleSheet.create({
   },
   placeholderAvatar: {
     backgroundColor: colors.gray200,
+  },
+  editButton: {
+    position: 'absolute',
+    bottom: 8,
+    right: 8,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 3,
+    borderColor: colors.white,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
 });

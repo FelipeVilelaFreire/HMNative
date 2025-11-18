@@ -24,11 +24,18 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   editButton: {
-    width: 40,
-    height: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
     borderRadius: 20,
     backgroundColor: colors.white,
-    justifyContent: 'center',
-    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: colors.gray300,
+  },
+  editButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
   },
 });

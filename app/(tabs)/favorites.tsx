@@ -1,3 +1,3 @@
-import Favorites from '@/src/screens/Favorites/Favorites';
+import Favorites from '@/src/screens/user/Favorites';
 
 export default Favorites;

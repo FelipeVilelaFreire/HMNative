@@ -1,3 +1,3 @@
-import Profile from '@/src/screens/Profile/Profile';
+import Profile from '@/src/screens/user/Profile';
 
 export default Profile;

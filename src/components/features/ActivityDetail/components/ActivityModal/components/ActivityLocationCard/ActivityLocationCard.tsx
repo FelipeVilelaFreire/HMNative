@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '@/src/theme';
 import { ICONS } from '@/src/constants';
@@ -10,9 +10,22 @@ interface ActivityLocationCardProps {
   neighborhood: string;
   city: string;
   distance: string;
+  isEditing?: boolean;
+  onChangeAddress?: (value: string) => void;
+  onChangeNeighborhood?: (value: string) => void;
+  onChangeCity?: (value: string) => void;
 }
 
-export default function ActivityLocationCard({ address, neighborhood, city, distance }: ActivityLocationCardProps) {
+export default function ActivityLocationCard({
+  address,
+  neighborhood,
+  city,
+  distance,
+  isEditing = false,
+  onChangeAddress,
+  onChangeNeighborhood,
+  onChangeCity
+}: ActivityLocationCardProps) {
   const fullLocation = `${address}, ${neighborhood} - ${city}`;
 
   return (
@@ -23,7 +36,33 @@ export default function ActivityLocationCard({ address, neighborhood, city, dist
       {/* Localização com ícone */}
       <View style={styles.locationRow}>
         <Ionicons name={ICONS.location} size={20} color={colors.primary} />
-        <Text style={styles.locationText}>{fullLocation} - {distance}</Text>
+        {isEditing ? (
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              value={address}
+              onChangeText={onChangeAddress}
+              placeholder="Endereço"
+              placeholderTextColor={colors.gray400}
+            />
+            <TextInput
+              style={styles.input}
+              value={neighborhood}
+              onChangeText={onChangeNeighborhood}
+              placeholder="Bairro"
+              placeholderTextColor={colors.gray400}
+            />
+            <TextInput
+              style={styles.input}
+              value={city}
+              onChangeText={onChangeCity}
+              placeholder="Cidade"
+              placeholderTextColor={colors.gray400}
+            />
+          </View>
+        ) : (
+          <Text style={styles.locationText}>{fullLocation} - {distance}</Text>
+        )}
       </View>
 
       {/* Mapa */}

@@ -13,6 +13,8 @@ interface ActivityDetailProps {
   onCancel?: () => void;
   onBack?: () => void;
   onProviderPress?: () => void; // Callback para quando clicar no provider
+  onEditPress?: () => void; // Callback para editar a atividade
+  onActivityChange?: (updatedData: Partial<Activity>) => void; // Callback para mudanças na atividade
 }
 
 export default function ActivityDetail({
@@ -24,6 +26,8 @@ export default function ActivityDetail({
   onCancel,
   onBack,
   onProviderPress,
+  onEditPress,
+  onActivityChange,
 }: ActivityDetailProps) {
   // Animated value para o scroll da tela
   const scrollY = useRef(new Animated.Value(0)).current;
@@ -53,10 +57,21 @@ export default function ActivityDetail({
           keyboardDismissMode="on-drag"
         >
           {/* Imagem no topo - 47% da tela */}
-          <ActivityDetailImage imageUrl={activity.coverImage} activityId={activity.id} />
+          <ActivityDetailImage
+            imageUrl={activity.coverImage}
+            activityId={activity.id}
+            isEditing={isEditing}
+            isCreating={isCreating}
+            onImagePress={() => console.log('TODO: Abrir seletor de imagem')}
+          />
 
           {/* Modal da atividade - parte do scroll */}
-          <ActivityModal activity={activity} onProviderPress={onProviderPress} />
+          <ActivityModal
+            activity={activity}
+            onProviderPress={onProviderPress}
+            isEditing={isEditing}
+            onActivityChange={onActivityChange}
+          />
         </Animated.ScrollView>
 
         {/* Header fixo por cima de tudo */}
@@ -64,6 +79,11 @@ export default function ActivityDetail({
           onBackPress={onBack}
           onFavoriteToggle={handleFavoriteToggle}
           scrollY={scrollY}
+          isProvider={isProvider}
+          onEditPress={onEditPress}
+          isEditing={isEditing}
+          isCreating={isCreating}
+          onSave={onSave}
         />
       </View>
     </KeyboardAvoidingView>

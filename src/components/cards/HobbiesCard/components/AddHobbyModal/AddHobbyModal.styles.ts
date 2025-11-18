@@ -66,7 +66,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    columnGap: 8,
+    columnGap: 0,
     rowGap: 16,
     paddingTop: 16,
     paddingHorizontal: 4,

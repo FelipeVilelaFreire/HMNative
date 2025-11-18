@@ -35,4 +35,13 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 40,
   },
+  editableText: {
+    borderWidth: 1,
+    borderColor: colors.gray300,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: colors.white,
+    textAlignVertical: 'top',
+  },
 });

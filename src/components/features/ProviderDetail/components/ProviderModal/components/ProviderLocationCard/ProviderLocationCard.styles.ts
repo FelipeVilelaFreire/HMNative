@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     width: '100%',
     marginTop: 32,
+    paddingTop: 16,
   },
   sectionTitle: {
     fontSize: typography.fontSize.lg,
@@ -22,6 +23,13 @@ export const styles = StyleSheet.create({
     fontSize: typography.fontSize.sm,
     fontWeight: typography.fontWeight.regular,
     color: colors.secondary,
+  },
+  editableText: {
+    borderWidth: 1,
+    borderColor: colors.gray300,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
   },
   mapImage: {
     width: '100%',

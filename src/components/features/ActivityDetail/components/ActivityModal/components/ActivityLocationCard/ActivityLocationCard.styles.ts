@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
   },
   locationRow: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     gap: 8,
     marginBottom: 12,
   },
@@ -21,6 +21,21 @@ export const styles = StyleSheet.create({
     fontSize: typography.fontSize.sm,
     fontWeight: typography.fontWeight.regular,
     color: colors.secondary,
+  },
+  inputContainer: {
+    flex: 1,
+    gap: 8,
+  },
+  input: {
+    fontSize: typography.fontSize.sm,
+    fontWeight: typography.fontWeight.regular,
+    color: colors.secondary,
+    borderWidth: 1.5,
+    borderColor: colors.primary,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: colors.white,
   },
   mapImage: {
     width: '100%',

@@ -23,7 +23,6 @@ export const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 20,
     minHeight: screenHeight * 0.08,
-    marginBottom: 16,
   },
   expanded: {
     minHeight: screenHeight * 0.15,

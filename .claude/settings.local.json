@@ -17,7 +17,17 @@
       "Bash(cat:*)",
       "Bash(dir \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\src\\components\\features\\ProviderDetail\\components\\ProviderDetailImage\")",
       "Bash(if exist .expo rmdir /s /q .expo)",
-      "Bash(if exist node_modules.cache rmdir /s /q node_modules.cache)"
+      "Bash(if exist node_modules.cache rmdir /s /q node_modules.cache)",
+      "Bash(dir:*)",
+      "Bash(netstat:*)",
+      "Bash(if exist \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\.expo\" rmdir /s /q \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\.expo\")",
+      "Bash(if exist \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\node_modules\\.cache\" rmdir /s /q \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\node_modules\\.cache\")",
+      "Bash(timeout:*)",
+      "Bash(ren \"app\\(tabs)\\dashboard.tsx\" \"home.tsx\")",
+      "Bash(git checkout:*)",
+      "Bash(if exist \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\src\\screens\\provider\\Gestao\\components\\ActivityCard\" rmdir /s /q \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\src\\screens\\provider\\Gestao\\components\\ActivityCard\")",
+      "Bash(if exist \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\app\\gestao\\activity\\[id]\\edit.tsx\" del \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\app\\gestao\\activity\\[id]\\edit.tsx\")",
+      "Bash(if exist \"app\\gestao\\activity\\[id]\\edit.tsx\" del \"app\\gestao\\activity\\[id]\\edit.tsx\")"
     ],
     "deny": [],
     "ask": []

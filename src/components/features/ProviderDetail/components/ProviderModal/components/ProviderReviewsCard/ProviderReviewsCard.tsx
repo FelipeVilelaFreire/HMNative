@@ -18,9 +18,10 @@ interface Review {
 
 interface ProviderReviewsCardProps {
   reviews: Review[];
+  isOwner?: boolean;
 }
 
-export default function ProviderReviewsCard({ reviews }: ProviderReviewsCardProps) {
+export default function ProviderReviewsCard({ reviews, isOwner = false }: ProviderReviewsCardProps) {
   const [isAddingReview, setIsAddingReview] = useState(false);
 
   const handleAddReview = (rating: number, comment: string) => {
@@ -33,7 +34,7 @@ export default function ProviderReviewsCard({ reviews }: ProviderReviewsCardProp
     <View style={styles.container}>
       <View style={styles.headerRow}>
         <Text style={styles.sectionTitle}>Avaliações</Text>
-        {!isAddingReview && (
+        {!isAddingReview && !isOwner && (
           <TouchableOpacity
             style={styles.addButton}
             onPress={() => setIsAddingReview(true)}

@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { View, ScrollView, Animated, KeyboardAvoidingView, Platform } from 'react-native';
+import React, { useRef, useState } from 'react';
+import { View, ScrollView, Animated, KeyboardAvoidingView, Platform, TouchableOpacity, Text } from 'react-native';
 import { Provider } from '@/src/mocks/providers';
 import { ProviderDetailHeader, ProviderDetailImage, ProviderModal } from './components';
 import { styles } from './ProviderDetail.styles';
@@ -13,6 +13,7 @@ interface ProviderDetailProps {
   onSave?: (provider: Provider) => void;
   onCancel?: () => void;
   onBack?: () => void;
+  onEditPress?: () => void;    // Callback quando o botão de editar é pressionado
 }
 
 export default function ProviderDetail({
@@ -24,9 +25,13 @@ export default function ProviderDetail({
   onSave,
   onCancel,
   onBack,
+  onEditPress,
 }: ProviderDetailProps) {
   // Animated value para o scroll da tela
   const scrollY = useRef(new Animated.Value(0)).current;
+
+  // Estado para rastrear se há mudanças
+  const [hasChanges, setHasChanges] = useState(false);
 
   return (
     <KeyboardAvoidingView
@@ -48,13 +53,16 @@ export default function ProviderDetail({
           keyboardDismissMode="on-drag"
         >
           {/* Avatar da academia/provider */}
-          <ProviderDetailImage imageUrl={provider.avatar} providerId={provider.id} />
+          <ProviderDetailImage imageUrl={provider.avatar} providerId={provider.id} isEditing={isEditing} />
 
           {/* Modal do provider - parte do scroll */}
           <ProviderModal
             provider={provider}
             isOwner={isOwner}
             isDashboard={isDashboard}
+            isEditing={isEditing}
+            onSave={onSave}
+            onHasChanges={setHasChanges}
           />
         </Animated.ScrollView>
 
@@ -63,7 +71,22 @@ export default function ProviderDetail({
           onBackPress={onBack}
           scrollY={scrollY}
           isOwner={isOwner}
+          onEditPress={onEditPress}
+          isEditing={isEditing}
         />
+
+        {/* Botão flutuante Salvar - aparece apenas quando há mudanças */}
+        {hasChanges && (
+          <View style={styles.floatingButtonContainer}>
+            <TouchableOpacity
+              style={styles.saveButton}
+              activeOpacity={0.8}
+              onPress={onSave}
+            >
+              <Text style={styles.saveButtonText}>Salvar</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
     </KeyboardAvoidingView>
   );

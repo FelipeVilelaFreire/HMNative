@@ -74,6 +74,16 @@ export const styles = StyleSheet.create({
     color: colors.secondary,
     marginLeft: 6,
   },
+  spaceContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 8,
+  },
+  spaceText: {
+    fontSize: typography.fontSize.sm,
+    color: colors.secondary,
+    marginLeft: 6,
+  },
   // Estilos para variant medium (redução proporcional ~65%)
   contentMedium: {
     height: '35%',
@@ -97,6 +107,9 @@ export const styles = StyleSheet.create({
     fontSize: 9,
   },
   priceTextMedium: {
+    fontSize: 9,
+  },
+  spaceTextMedium: {
     fontSize: 9,
   },
 });
