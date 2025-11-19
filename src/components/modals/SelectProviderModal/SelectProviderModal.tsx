@@ -79,37 +79,31 @@ export default function SelectProviderModal({ onSelectProvider, onCancel }: Sele
                 styles.providerCard,
                 {
                   borderColor: roleColors.border,
-                  borderLeftColor: roleColors.border,
+                  backgroundColor: roleColors.background,
                 },
               ]}
               onPress={() => onSelectProvider(provider)}
               activeOpacity={0.7}
             >
-            {provider.imageUrl ? (
-              <Image
-                source={{ uri: provider.imageUrl }}
-                style={styles.providerImage}
-              />
-            ) : (
-              <View style={styles.iconContainer}>
-                <FontAwesome5
-                  name={getProviderIcon(provider.type)}
-                  size={24}
-                  color={colors.primary}
-                />
-              </View>
-            )}
+              {provider.imageUrl ? (
+                <View style={styles.imageWrapper}>
+                  <Image
+                    source={{ uri: provider.imageUrl }}
+                    style={styles.providerImage}
+                  />
+                </View>
+              ) : (
+                <View style={styles.iconContainer}>
+                  <FontAwesome5
+                    name={getProviderIcon(provider.type)}
+                    size={32}
+                    color={colors.primary}
+                  />
+                </View>
+              )}
             <View style={styles.providerInfo}>
               <Text style={styles.providerName}>{provider.name}</Text>
-              <View
-                style={[
-                  styles.roleBadge,
-                  {
-                    borderColor: getRoleColors(provider.role).border,
-                    backgroundColor: getRoleColors(provider.role).background,
-                  },
-                ]}
-              >
+              <View style={styles.roleBadge}>
                 <Text style={styles.roleBadgeText}>{getRoleLabel(provider.role)}</Text>
               </View>
               <Text style={styles.providerAddress}>{provider.address}</Text>

@@ -22,7 +22,7 @@ export default function Auth() {
   const handleSubmit = () => {
     // Por enquanto apenas navega para home
     // Depois adicionar autenticação real
-    router.push('/(tabs)/home');
+    router.replace('/(tabs)/home');
   };
 
   const toggleMode = () => {

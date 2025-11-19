@@ -1,6 +1,7 @@
 import { View, Dimensions } from 'react-native';
 import { useState, useCallback } from 'react';
 import { SearchHeader, MapView, ActivitiesModal } from './components';
+import { FilterModal, FilterState } from '@/src/components/modals';
 import { activities } from '@/src/mocks/activities';
 import { styles } from './Search.styles';
 
@@ -17,6 +18,8 @@ export default function Search() {
   const INITIAL_MODAL_HEIGHT = USEFUL_AREA_HEIGHT * 0.15; // Começa minimizado
 
   const [modalHeight, setModalHeight] = useState(INITIAL_MODAL_HEIGHT);
+  const [isFilterModalVisible, setIsFilterModalVisible] = useState(false);
+  const [currentFilters, setCurrentFilters] = useState<FilterState | undefined>(undefined);
 
   // Modal está maximizado quando ocupa 100% da área útil
   const isModalMaximized = modalHeight >= MAX_MODAL_HEIGHT - 20;
@@ -26,7 +29,13 @@ export default function Search() {
   };
 
   const handleFilterPress = () => {
-    console.log('Abrir filtros');
+    setIsFilterModalVisible(true);
+  };
+
+  const handleApplyFilters = (filters: FilterState) => {
+    setCurrentFilters(filters);
+    console.log('Filtros aplicados:', filters);
+    // Aqui você pode filtrar as atividades com base nos filtros
   };
 
   const handleModalDrag = useCallback((newHeight: number) => {
@@ -62,6 +71,14 @@ export default function Search() {
           />
         </View>
       </View>
+
+      {/* Modal de Filtros */}
+      <FilterModal
+        visible={isFilterModalVisible}
+        onClose={() => setIsFilterModalVisible(false)}
+        onApplyFilters={handleApplyFilters}
+        initialFilters={currentFilters}
+      />
     </View>
   );
 }

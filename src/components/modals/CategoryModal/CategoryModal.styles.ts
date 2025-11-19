@@ -1,0 +1,108 @@
+import { StyleSheet } from 'react-native';
+import { colors, typography } from '@/src/theme';
+
+export const styles = StyleSheet.create({
+  title: {
+    fontSize: typography.fontSize.xl,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.secondary,
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 24,
+    paddingTop: 20,
+  },
+  description: {
+    fontSize: typography.fontSize.sm,
+    color: colors.gray600,
+    marginBottom: 24,
+    lineHeight: 20,
+  },
+  categoriesGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 12,
+  },
+  categoryCard: {
+    width: '48%',
+    paddingVertical: 20,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: colors.gray200,
+    backgroundColor: colors.white,
+    alignItems: 'center',
+    position: 'relative',
+  },
+  categoryCardActive: {
+    borderColor: colors.primary,
+    backgroundColor: colors.primaryLight,
+  },
+  categoryIconContainer: {
+    width: 56,
+    height: 56,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  categoryName: {
+    fontSize: typography.fontSize.base,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.secondary,
+    textAlign: 'center',
+  },
+  checkmark: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: 12,
+    paddingVertical: 20,
+    paddingHorizontal: 24,
+    borderTopWidth: 1,
+    borderTopColor: colors.gray200,
+  },
+  clearButton: {
+    flex: 1,
+    paddingVertical: 14,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: colors.gray300,
+    backgroundColor: colors.white,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  clearButtonText: {
+    fontSize: typography.fontSize.base,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.secondary,
+  },
+  applyButton: {
+    flex: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    paddingVertical: 14,
+    borderRadius: 12,
+    backgroundColor: colors.primary,
+    shadowColor: colors.primary,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  applyButtonText: {
+    fontSize: typography.fontSize.base,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.white,
+  },
+});

@@ -2,6 +2,9 @@
 export const colors = {
   // Cores principais
   primary: '#C02AE5',           // Roxo principal
+  primaryLight: 'rgba(192, 42, 229, 0.1)', // Primary com 10% opacity
+  primaryBackground: 'rgba(192, 42, 229, 0.15)', // Primary com 15% opacity
+  primaryBorder: 'rgba(192, 42, 229, 0.3)', // Primary com 30% opacity
   secondary: '#2F2F2F',         // Preto secundário
   secondaryOpacity: 'rgba(47, 47, 47, 0.9)', // Preto com 90% opacity
 
@@ -29,15 +32,34 @@ export const colors = {
   info: '#3B82F6',
 
   // Cores de UI
-  star: '#F8DB00',              // Amarelo da estrela de avaliação
+  star: '#FBBF24',              // Amarelo da estrela de avaliação (suavizado)
+  starLight: 'rgba(251, 191, 36, 0.1)',   // Star com 10% opacity
+  starBackground: 'rgba(251, 191, 36, 0.15)', // Star com 15% opacity
+  starBorder: 'rgba(251, 191, 36, 0.3)',  // Star com 30% opacity
+
   schedule: '#98Aaec',  // Azul para horário
+  scheduleLight: 'rgba(152, 170, 236, 0.1)',   // Azul schedule com 10% opacity
+  scheduleBackground: 'rgba(152, 170, 236, 0.15)', // Azul schedule com 15% opacity
+  scheduleBorder: 'rgba(152, 170, 236, 0.3)',  // Azul schedule com 30% opacity
+  scheduleHover: 'rgba(152, 170, 236, 0.08)',  // Azul schedule com 8% opacity
+
   price: 'rgba(0, 201, 54, 0.8)',       // Verde para preço (00C936 com 80%)
+
   hobby: 'hsla(136.21, 37.2%, 44.3%, 0.79)', // Verde para hobbies
+  hobbyLight: 'rgba(92, 184, 92, 0.1)',   // Hobby com 10% opacity
+  hobbyBackground: 'rgba(92, 184, 92, 0.15)', // Hobby com 15% opacity
+  hobbyBorder: 'rgba(92, 184, 92, 0.3)',  // Hobby com 30% opacity
+
   phone: '#508DFF',             // Azul para telefone
+
   website: '#915D06',           // Marrom/laranja para website
+
   space: '#FF8C42',             // Laranja para espaços/locais
+  spaceLight: 'rgba(255, 140, 66, 0.1)',   // Space com 10% opacity
+  spaceBackground: 'rgba(255, 140, 66, 0.15)', // Space com 15% opacity
+  spaceBorder: 'rgba(255, 140, 66, 0.3)',  // Space com 30% opacity
+
   iconBackground: 'rgba(217, 217, 217, 0.73)', // Background dos ícones de header (#D9D9D9 com 73% opacity)
-  primaryLight: 'rgba(192, 42, 229, 0.1)', // Primary com 10% opacity
 
   // Cores de roles/cargos do provider
   roles: {

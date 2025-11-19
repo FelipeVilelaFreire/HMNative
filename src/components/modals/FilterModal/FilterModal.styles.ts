@@ -1,0 +1,168 @@
+import { StyleSheet } from 'react-native';
+import { colors, typography } from '@/src/theme';
+
+export const styles = StyleSheet.create({
+  titleContainer: {
+    minHeight: 44,
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: typography.fontSize['2xl'],
+    fontWeight: typography.fontWeight.bold,
+    color: colors.secondary,
+  },
+  subtitle: {
+    fontSize: typography.fontSize.sm,
+    color: colors.primary,
+    fontWeight: typography.fontWeight.semibold,
+    marginTop: 2,
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 24,
+    paddingTop: 20,
+  },
+  filterSection: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    marginBottom: 16,
+    backgroundColor: colors.white,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: colors.gray200,
+  },
+  filterSectionDisabled: {
+    opacity: 0.5,
+  },
+  filterSectionLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    flex: 1,
+  },
+  filterIconContainer: {
+    width: 48,
+    height: 48,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  filterSectionInfo: {
+    flex: 1,
+  },
+  filterSectionTitle: {
+    fontSize: typography.fontSize.base,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.secondary,
+    marginBottom: 4,
+  },
+  filterSectionValue: {
+    fontSize: typography.fontSize.sm,
+    fontWeight: typography.fontWeight.regular,
+    color: colors.gray600,
+  },
+  optionsRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+    marginBottom: 24,
+    paddingHorizontal: 4,
+  },
+  optionChip: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: colors.gray200,
+    backgroundColor: colors.white,
+  },
+  optionChipActive: {
+    borderColor: colors.primary,
+    backgroundColor: colors.primaryLight,
+  },
+  optionChipText: {
+    fontSize: typography.fontSize.sm,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.gray600,
+  },
+  optionChipTextActive: {
+    color: colors.primary,
+  },
+  optionsColumn: {
+    gap: 10,
+  },
+  availabilityOption: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: colors.gray200,
+    backgroundColor: colors.white,
+  },
+  availabilityOptionActive: {
+    borderColor: colors.primary,
+    backgroundColor: colors.primaryLight,
+  },
+  availabilityOptionText: {
+    fontSize: typography.fontSize.base,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.gray600,
+  },
+  availabilityOptionTextActive: {
+    color: colors.primary,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: 12,
+    paddingVertical: 20,
+    paddingHorizontal: 24,
+    borderTopWidth: 1,
+    borderTopColor: colors.gray200,
+  },
+  clearButton: {
+    flex: 1,
+    paddingVertical: 14,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: colors.gray300,
+    backgroundColor: colors.white,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  clearButtonText: {
+    fontSize: typography.fontSize.base,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.secondary,
+  },
+  applyButton: {
+    flex: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    paddingVertical: 14,
+    borderRadius: 12,
+    backgroundColor: colors.primary,
+    shadowColor: colors.primary,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  applyButtonText: {
+    fontSize: typography.fontSize.base,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.white,
+  },
+});

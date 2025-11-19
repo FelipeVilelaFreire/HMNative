@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Animated } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { colors } from '@/src/theme';
 import ScheduleTableRow from '@/src/components/schedule/DayScheduleItem/DayScheduleItem';
+import { EditScheduleModal } from '@/src/components/modals/EditScheduleModal';
 import { userScheduleGrid, hours, extraHours, daysLabels, daysOfWeek } from '@/src/mocks/schedules';
 import { styles, ICON_SIZE, ARROW_SIZE } from './ScheduleCard.styles';
 
@@ -10,63 +11,16 @@ export default function ScheduleCard() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [schedule, setSchedule] = useState(userScheduleGrid);
   const [showExtraHours, setShowExtraHours] = useState(false);
+  const [isEditModalVisible, setIsEditModalVisible] = useState(false);
   const animatedHeight = useRef(new Animated.Value(0)).current;
   const rotateAnim = useRef(new Animated.Value(0)).current;
 
   const allHours = showExtraHours ? [...hours, ...extraHours] : hours;
 
-  const handleToggle = (hour: string, day: string) => {
-    setSchedule(prev => ({
-      ...prev,
-      [hour]: {
-        ...prev[hour],
-        [day]: !prev[hour][day as keyof typeof prev[typeof hour]]
-      }
-    }));
-  };
-
-  const handleColumnToggle = (day: string) => {
-    const allTrue = allHours.every(hour => schedule[hour][day as keyof typeof schedule[typeof hour]]);
-
-    setSchedule(prev => {
-      const updated = { ...prev };
-      allHours.forEach(hour => {
-        updated[hour] = {
-          ...updated[hour],
-          [day]: !allTrue
-        };
-      });
-      return updated;
-    });
-  };
-
-  const handleRowToggle = (hour: string) => {
-    const allTrue = daysOfWeek.every(day => schedule[hour][day as keyof typeof schedule[typeof hour]]);
-
-    setSchedule(prev => ({
-      ...prev,
-      [hour]: daysOfWeek.reduce((acc, day) => ({
-        ...acc,
-        [day]: !allTrue
-      }), prev[hour])
-    }));
-  };
-
-  const handleToggleAll = () => {
-    const allTrue = allHours.every(hour =>
-      daysOfWeek.every(day => schedule[hour][day as keyof typeof schedule[typeof hour]])
-    );
-
-    setSchedule(prev => {
-      const updated = { ...prev };
-      allHours.forEach(hour => {
-        updated[hour] = daysOfWeek.reduce((acc, day) => ({
-          ...acc,
-          [day]: !allTrue
-        }), prev[hour]);
-      });
-      return updated;
-    });
+  const handleSaveSchedule = (newSchedule: any) => {
+    setSchedule(newSchedule);
+    // Aqui você pode adicionar lógica para salvar no backend
+    console.log('Horários salvos:', newSchedule);
   };
 
   useEffect(() => {
@@ -125,37 +79,47 @@ export default function ScheduleCard() {
           },
         ]}
       >
+        {/* Botão Editar */}
+        <View style={styles.editButtonContainer}>
+          <TouchableOpacity
+            style={styles.editButton}
+            onPress={() => setIsEditModalVisible(true)}
+            activeOpacity={0.7}
+          >
+            <FontAwesome5 name="edit" size={14} color={colors.schedule} />
+            <Text style={styles.editButtonText}>Editar</Text>
+          </TouchableOpacity>
+        </View>
+
         <View style={styles.scheduleContainer}>
-          {/* Header da tabela */}
+          {/* Header da tabela (não clicável) */}
           <View style={styles.tableHeader}>
-            <TouchableOpacity
-              style={styles.headerHourCell}
-              onPress={handleToggleAll}
-              activeOpacity={0.7}
-            >
+            <View style={styles.headerHourCell}>
               <Text style={styles.headerText}>Horário</Text>
-            </TouchableOpacity>
-            {daysLabels.map((day, index) => (
-              <TouchableOpacity
-                key={day}
-                style={styles.headerDayCell}
-                onPress={() => handleColumnToggle(daysOfWeek[index])}
-                activeOpacity={0.7}
-              >
+            </View>
+            {daysLabels.map((day) => (
+              <View key={day} style={styles.headerDayCell}>
                 <Text style={styles.headerText}>{day}</Text>
-              </TouchableOpacity>
+              </View>
             ))}
           </View>
 
-          {/* Linhas de horários */}
+          {/* Linhas de horários (não clicáveis) */}
           {allHours.map((hour) => (
-            <ScheduleTableRow
-              key={hour}
-              hour={hour}
-              schedule={schedule[hour]}
-              onToggle={handleToggle}
-              onRowToggle={handleRowToggle}
-            />
+            <View key={hour} style={styles.row}>
+              <View style={styles.hourCell}>
+                <Text style={styles.hourText}>{hour}</Text>
+              </View>
+              {daysOfWeek.map((day) => (
+                <View
+                  key={day}
+                  style={[
+                    styles.dayCell,
+                    schedule[hour][day as keyof typeof schedule[typeof hour]] && styles.dayCellActive
+                  ]}
+                />
+              ))}
+            </View>
           ))}
         </View>
 
@@ -175,6 +139,14 @@ export default function ScheduleCard() {
           </Text>
         </TouchableOpacity>
       </Animated.View>
+
+      {/* Modal de edição */}
+      <EditScheduleModal
+        visible={isEditModalVisible}
+        onClose={() => setIsEditModalVisible(false)}
+        onSave={handleSaveSchedule}
+        initialSchedule={schedule}
+      />
     </View>
   );
 }
