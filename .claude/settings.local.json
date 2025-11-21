@@ -27,7 +27,13 @@
       "Bash(git checkout:*)",
       "Bash(if exist \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\src\\screens\\provider\\Gestao\\components\\ActivityCard\" rmdir /s /q \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\src\\screens\\provider\\Gestao\\components\\ActivityCard\")",
       "Bash(if exist \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\app\\gestao\\activity\\[id]\\edit.tsx\" del \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\app\\gestao\\activity\\[id]\\edit.tsx\")",
-      "Bash(if exist \"app\\gestao\\activity\\[id]\\edit.tsx\" del \"app\\gestao\\activity\\[id]\\edit.tsx\")"
+      "Bash(if exist \"app\\gestao\\activity\\[id]\\edit.tsx\" del \"app\\gestao\\activity\\[id]\\edit.tsx\")",
+      "Bash(npx tsc:*)",
+      "Bash(del \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\src\\screens\\provider\\Gestao\\components\\TeamMemberCard\\AddTeamMemberModal.tsx\")",
+      "Bash(del \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\src\\screens\\provider\\Gestao\\components\\TeamMemberCard\\AddTeamMemberModal.styles.ts\")",
+      "Bash(del \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\src\\screens\\provider\\Gestao\\components\\SpaceCard\\SpaceCard.styles.ts\")",
+      "Bash(del \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\src\\screens\\provider\\Gestao\\components\\ManagementActivityCard\\ManagementActivityCard.tsx\")",
+      "Bash(del \"C:\\Users\\Felipe.Freire\\Documents\\Documentos\\Sites\\HM\\HMNative\\src\\screens\\provider\\Gestao\\components\\ManagementActivityCard\\ManagementActivityCard.styles.ts\")"
     ],
     "deny": [],
     "ask": []

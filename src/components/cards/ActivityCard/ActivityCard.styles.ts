@@ -31,4 +31,9 @@ export const styles = StyleSheet.create({
     height: MEDIUM_CARD_HEIGHT,
     borderRadius: 10,
   },
+
+  // Full width - preenche 100% do container pai
+  cardFullWidth: {
+    width: '100%',
+  },
 });

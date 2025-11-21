@@ -64,20 +64,24 @@ export const colors = {
   // Cores de roles/cargos do provider
   roles: {
     owner: {
-      border: '#F3FF48',                    // Proprietário - borda amarela
-      background: 'rgba(237, 215, 53, 0.16)', // Proprietário - fundo amarelo com 16% opacity
+      border: 'rgba(237, 195, 53, 0.9)',      // Proprietário - borda amarela forte
+      background: 'rgba(237, 215, 53, 0.25)', // Proprietário - fundo amarelo com 25% opacity
+      text: '#B8860B',                        // Proprietário - texto dourado escuro
     },
     manager: {
-      border: 'rgba(104, 229, 127, 0.5)',   // Gerente - borda verde com 50% opacity
-      background: 'rgba(85, 255, 116, 0.04)', // Gerente - fundo verde com 4% opacity
+      border: 'rgba(16, 185, 129, 0.7)',      // Gerente - borda verde forte
+      background: 'rgba(16, 185, 129, 0.15)', // Gerente - fundo verde com 15% opacity
+      text: '#059669',                        // Gerente - texto verde escuro
     },
     instructor: {
-      border: 'rgba(168, 85, 247, 0.25)',   // Instrutor - borda roxa com 25% opacity
-      background: 'rgba(102, 126, 234, 0.04)', // Instrutor - fundo roxo com 4% opacity
+      border: 'rgba(124, 58, 237, 0.6)',      // Instrutor - borda roxa forte
+      background: 'rgba(124, 58, 237, 0.12)', // Instrutor - fundo roxo com 12% opacity
+      text: '#7C3AED',                        // Instrutor - texto roxo
     },
     employee: {
-      border: 'rgba(64, 64, 64, 0.23)',     // Funcionário - borda cinza com 23% opacity
-      background: 'rgba(85, 86, 89, 0.09)',  // Funcionário - fundo cinza com 9% opacity
+      border: 'rgba(82, 82, 82, 0.5)',        // Funcionário - borda cinza forte
+      background: 'rgba(82, 82, 82, 0.12)',   // Funcionário - fundo cinza com 12% opacity
+      text: '#525252',                        // Funcionário - texto cinza escuro
     },
   },
 };

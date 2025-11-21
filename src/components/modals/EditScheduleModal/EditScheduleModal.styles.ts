@@ -15,6 +15,8 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     width: screenWidth * 0.92,
     maxHeight: screenHeight * 0.85,
+    flexDirection: 'column',
+    overflow: 'hidden',
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -39,7 +41,8 @@ export const styles = StyleSheet.create({
     color: colors.secondary,
   },
   content: {
-    flex: 1,
+    flexGrow: 1,
+    flexShrink: 1,
     paddingHorizontal: 24,
     paddingTop: 20,
   },

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { View, TouchableOpacity, Animated, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '@/src/theme';
@@ -29,7 +29,20 @@ export default function ActivityDetailHeader({
 }: ActivityDetailHeaderProps) {
   const [isFavorited, setIsFavorited] = useState(initialFavorited);
 
+  // Animação do coração
+  const heartScaleAnim = useRef(new Animated.Value(1)).current;
+
+  const animateHeart = () => {
+    heartScaleAnim.setValue(0.5);
+    Animated.spring(heartScaleAnim, {
+      toValue: 1,
+      friction: 3,
+      useNativeDriver: true,
+    }).start();
+  };
+
   const handleFavoritePress = () => {
+    animateHeart();
     const newValue = !isFavorited;
     setIsFavorited(newValue);
     onFavoriteToggle?.(newValue);
@@ -111,11 +124,13 @@ export default function ActivityDetailHeader({
           activeOpacity={0.7}
         >
           <Animated.View style={[styles.iconBackground, { backgroundColor: iconBackgroundColor }]}>
-            <Ionicons
-              name={isFavorited ? 'heart' : 'heart-outline'}
-              size={ICON_SIZE}
-              color={isFavorited ? colors.error : colors.black}
-            />
+            <Animated.View style={{ transform: [{ scale: heartScaleAnim }] }}>
+              <Ionicons
+                name={isFavorited ? 'heart' : 'heart-outline'}
+                size={ICON_SIZE}
+                color={isFavorited ? colors.error : colors.black}
+              />
+            </Animated.View>
           </Animated.View>
         </TouchableOpacity>
       )}

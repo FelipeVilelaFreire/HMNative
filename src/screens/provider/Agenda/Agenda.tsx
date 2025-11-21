@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { ProviderHeader } from '@/src/components/layout';
-import { Calendar } from './components';
+import { CalendarContainer } from './components';
 import { styles } from './Agenda.styles';
 
 export default function Agenda() {
@@ -11,7 +11,7 @@ export default function Agenda() {
       <ProviderHeader />
 
       <View style={styles.content}>
-        <Calendar />
+        <CalendarContainer />
       </View>
     </View>
   );

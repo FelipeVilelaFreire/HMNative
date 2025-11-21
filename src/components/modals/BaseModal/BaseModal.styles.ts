@@ -49,4 +49,9 @@ export const styles = StyleSheet.create({
   titleContainer: {
     flex: 1,
   },
+  titleText: {
+    fontSize: typography.fontSize.xl,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.secondary,
+  },
 });

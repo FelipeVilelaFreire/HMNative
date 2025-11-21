@@ -5,8 +5,9 @@ import { useRouter } from 'expo-router';
 import { useUserMode } from '@/src/contexts';
 import { ProviderHeader } from '@/src/components/layout';
 import Modal from '@/src/components/ui/Modal/Modal';
-import { ManagementActivityCard, TeamMemberCard, SpaceCard } from './components';
-import { DeleteActivityModal } from './components/DeleteActivityModal';
+import { ManagementActivityCard, DeleteActivityModal, AddActivityModal, EditActivityModal, TeamMemberCard, AddTeamMemberModal, EditTeamMemberModal, SpaceCard, AddSpaceModal, EditSpaceModal } from './components';
+import type { NewTeamMember, NewSpace, NewActivity } from './components';
+import { TeamMember, Space } from '@/src/mocks/management';
 import { activities } from '@/src/mocks/activities';
 import { Activity } from '@/src/mocks/activities';
 import { teamMembers, spaces } from '@/src/mocks/management';
@@ -21,13 +22,39 @@ export default function Gestao() {
   const [activeTab, setActiveTab] = useState<GestaoTab>('activities');
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
   const [activityToDelete, setActivityToDelete] = useState<Activity | null>(null);
+  const [addActivityModalVisible, setAddActivityModalVisible] = useState(false);
+  const [editActivityModalVisible, setEditActivityModalVisible] = useState(false);
+  const [activityToEdit, setActivityToEdit] = useState<Activity | null>(null);
+  const [addTeamMemberModalVisible, setAddTeamMemberModalVisible] = useState(false);
+  const [editTeamMemberModalVisible, setEditTeamMemberModalVisible] = useState(false);
+  const [memberToEdit, setMemberToEdit] = useState<TeamMember | null>(null);
+  const [addSpaceModalVisible, setAddSpaceModalVisible] = useState(false);
+  const [editSpaceModalVisible, setEditSpaceModalVisible] = useState(false);
+  const [spaceToEdit, setSpaceToEdit] = useState<Space | null>(null);
 
   const handleViewActivity = (id: string) => {
     router.push(`/gestao/activity/${id}`);
   };
 
   const handleEditActivity = (id: string) => {
-    router.push(`/gestao/activity/${id}?edit=true`);
+    const activity = activities.find(a => a.id === id);
+    if (activity) {
+      setActivityToEdit(activity);
+      setEditActivityModalVisible(true);
+    }
+  };
+
+  const handleSaveActivity = (updatedActivity: Activity) => {
+    console.log('Atividade atualizada:', updatedActivity);
+    // TODO: Implementar atualização de atividade
+    setEditActivityModalVisible(false);
+    setActivityToEdit(null);
+  };
+
+  const handleAddActivity = (newActivity: NewActivity) => {
+    console.log('Nova atividade:', newActivity);
+    // TODO: Implementar adição de atividade
+    setAddActivityModalVisible(false);
   };
 
   const handleDeleteActivity = (id: string) => {
@@ -53,8 +80,18 @@ export default function Gestao() {
   };
 
   const handleEditTeamMember = (id: string) => {
-    console.log('Editar membro:', id);
-    // TODO: Implementar edição de membro
+    const member = teamMembers.find(m => m.id === id);
+    if (member) {
+      setMemberToEdit(member);
+      setEditTeamMemberModalVisible(true);
+    }
+  };
+
+  const handleSaveTeamMember = (updatedMember: TeamMember) => {
+    console.log('Membro atualizado:', updatedMember);
+    // TODO: Implementar atualização de membro
+    setEditTeamMemberModalVisible(false);
+    setMemberToEdit(null);
   };
 
   const handleDeleteTeamMember = (id: string) => {
@@ -62,9 +99,31 @@ export default function Gestao() {
     // TODO: Implementar deleção de membro
   };
 
+  const handleAddTeamMember = (newMember: NewTeamMember) => {
+    console.log('Novo membro:', newMember);
+    // TODO: Implementar adição de membro
+    setAddTeamMemberModalVisible(false);
+  };
+
   const handleEditSpace = (id: string) => {
-    console.log('Editar espaço:', id);
-    // TODO: Implementar edição de espaço
+    const space = spaces.find(s => s.id === id);
+    if (space) {
+      setSpaceToEdit(space);
+      setEditSpaceModalVisible(true);
+    }
+  };
+
+  const handleSaveSpace = (updatedSpace: Space) => {
+    console.log('Espaço atualizado:', updatedSpace);
+    // TODO: Implementar atualização de espaço
+    setEditSpaceModalVisible(false);
+    setSpaceToEdit(null);
+  };
+
+  const handleAddSpace = (newSpace: NewSpace) => {
+    console.log('Novo espaço:', newSpace);
+    // TODO: Implementar adição de espaço
+    setAddSpaceModalVisible(false);
   };
 
   const handleDeleteSpace = (id: string) => {
@@ -117,6 +176,20 @@ export default function Gestao() {
         {/* Tab Atividades */}
         {activeTab === 'activities' && (
           <View style={styles.section}>
+            <View style={styles.sectionHeader}>
+              <View style={styles.sectionTitleRow}>
+                <Text style={styles.sectionTitle}>Minhas Atividades</Text>
+                <Text style={styles.sectionCount}>{activities.slice(0, 4).length}</Text>
+              </View>
+              <TouchableOpacity
+                style={styles.addButton}
+                onPress={() => setAddActivityModalVisible(true)}
+                activeOpacity={0.7}
+              >
+                <FontAwesome5 name="plus" size={12} color={colors.white} />
+                <Text style={styles.addButtonText}>Adicionar</Text>
+              </TouchableOpacity>
+            </View>
             {activities.slice(0, 4).map((activity, index) => (
               <ManagementActivityCard
                 key={activity.id}
@@ -134,8 +207,18 @@ export default function Gestao() {
         {activeTab === 'team' && (
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>Minha Equipe</Text>
-              <Text style={styles.sectionCount}>{teamMembers.length}</Text>
+              <View style={styles.sectionTitleRow}>
+                <Text style={styles.sectionTitle}>Minha Equipe</Text>
+                <Text style={styles.sectionCount}>{teamMembers.length}</Text>
+              </View>
+              <TouchableOpacity
+                style={styles.addButton}
+                onPress={() => setAddTeamMemberModalVisible(true)}
+                activeOpacity={0.7}
+              >
+                <FontAwesome5 name="user-plus" size={12} color={colors.white} />
+                <Text style={styles.addButtonText}>Adicionar</Text>
+              </TouchableOpacity>
             </View>
             {teamMembers.map((member) => (
               <TeamMemberCard
@@ -152,8 +235,18 @@ export default function Gestao() {
         {activeTab === 'spaces' && (
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>Meus Espaços</Text>
-              <Text style={styles.sectionCount}>{spaces.length}</Text>
+              <View style={styles.sectionTitleRow}>
+                <Text style={styles.sectionTitle}>Meus Espaços</Text>
+                <Text style={styles.sectionCount}>{spaces.length}</Text>
+              </View>
+              <TouchableOpacity
+                style={styles.addButton}
+                onPress={() => setAddSpaceModalVisible(true)}
+                activeOpacity={0.7}
+              >
+                <FontAwesome5 name="plus" size={12} color={colors.white} />
+                <Text style={styles.addButtonText}>Adicionar</Text>
+              </TouchableOpacity>
             </View>
             {spaces.map((space) => (
               <SpaceCard
@@ -180,6 +273,60 @@ export default function Gestao() {
           />
         </Modal>
       )}
+
+      {/* Modal para adicionar atividade */}
+      <AddActivityModal
+        visible={addActivityModalVisible}
+        onClose={() => setAddActivityModalVisible(false)}
+        onSave={handleAddActivity}
+      />
+
+      {/* Modal para editar atividade */}
+      <EditActivityModal
+        visible={editActivityModalVisible}
+        activity={activityToEdit}
+        onClose={() => {
+          setEditActivityModalVisible(false);
+          setActivityToEdit(null);
+        }}
+        onSave={handleSaveActivity}
+      />
+
+      {/* Modal para adicionar membro da equipe */}
+      <AddTeamMemberModal
+        visible={addTeamMemberModalVisible}
+        onClose={() => setAddTeamMemberModalVisible(false)}
+        onSave={handleAddTeamMember}
+      />
+
+      {/* Modal para editar membro da equipe */}
+      <EditTeamMemberModal
+        visible={editTeamMemberModalVisible}
+        member={memberToEdit}
+        onClose={() => {
+          setEditTeamMemberModalVisible(false);
+          setMemberToEdit(null);
+        }}
+        onSave={handleSaveTeamMember}
+      />
+
+      {/* Modal para adicionar espaço */}
+      <AddSpaceModal
+        visible={addSpaceModalVisible}
+        onClose={() => setAddSpaceModalVisible(false)}
+        onSave={handleAddSpace}
+      />
+
+      {/* Modal para editar espaço */}
+      <EditSpaceModal
+        visible={editSpaceModalVisible}
+        space={spaceToEdit}
+        onClose={() => {
+          setEditSpaceModalVisible(false);
+          setSpaceToEdit(null);
+        }}
+        onSave={handleSaveSpace}
+      />
     </View>
   );
 }

@@ -9,3 +9,4 @@ export { default as CategoryModal } from './CategoryModal';
 export { default as HobbyModal } from './HobbyModal';
 export { default as FilterModal } from './FilterModal';
 export type { FilterState } from './FilterModal';
+export { default as WarningModal } from './WarningModal';

@@ -13,13 +13,36 @@ export interface Activity {
   color: string;
 }
 
+// Tipos de função/cargo
+export type RoleType = 'owner' | 'manager' | 'instructor' | 'employee';
+
+// Tipos de permissão
+export type Permission = 'edit_team' | 'manage_activities' | 'edit_establishment';
+
+// Labels das permissões para exibição
+export const permissionLabels: Record<Permission, string> = {
+  edit_team: 'Editar Equipe',
+  manage_activities: 'Gerenciar Atividades',
+  edit_establishment: 'Editar Estabelecimento',
+};
+
+// Labels das funções para exibição
+export const roleLabels: Record<RoleType, string> = {
+  owner: 'Proprietário',
+  manager: 'Gerente',
+  instructor: 'Instrutor',
+  employee: 'Funcionário',
+};
+
 export interface TeamMember {
   id: string;
   name: string;
-  role: string; // Instrutor, Recepcionista, etc.
+  nickname: string;
+  roleType: RoleType;
   avatar?: string;
   phone: string;
   email: string;
+  permissions: Permission[];
   activities: string[]; // IDs das atividades que pode ministrar
   isActive: boolean;
 }
@@ -89,47 +112,74 @@ export const activities: Activity[] = [
 // Mock de Equipe
 export const teamMembers: TeamMember[] = [
   {
+    id: 't0',
+    name: 'Felipe Freire',
+    nickname: 'felipefreire',
+    roleType: 'owner',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+    phone: '(11) 99999-0000',
+    email: 'felipe@hobbymap.com',
+    permissions: ['edit_team', 'manage_activities', 'edit_establishment'],
+    activities: [],
+    isActive: true,
+  },
+  {
     id: 't1',
     name: 'João Silva',
-    role: 'Instrutor',
+    nickname: 'joaosilva',
+    roleType: 'manager',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
     phone: '(11) 98765-4321',
     email: 'joao@hobbymap.com',
+    permissions: ['edit_team', 'manage_activities'],
     activities: ['a1', 'a4'],
     isActive: true,
   },
   {
     id: 't2',
     name: 'Maria Santos',
-    role: 'Instrutora',
+    nickname: 'mariasantos',
+    roleType: 'instructor',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face',
     phone: '(11) 98765-4322',
     email: 'maria@hobbymap.com',
+    permissions: ['manage_activities'],
     activities: ['a2'],
     isActive: true,
   },
   {
     id: 't3',
     name: 'Pedro Costa',
-    role: 'Instrutor',
+    nickname: 'pedrocosta',
+    roleType: 'instructor',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
     phone: '(11) 98765-4323',
     email: 'pedro@hobbymap.com',
+    permissions: ['manage_activities'],
     activities: ['a3'],
     isActive: true,
   },
   {
     id: 't4',
     name: 'Ana Oliveira',
-    role: 'Recepcionista',
+    nickname: 'anaoliveira',
+    roleType: 'employee',
+    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
     phone: '(11) 98765-4324',
     email: 'ana@hobbymap.com',
+    permissions: [],
     activities: [],
     isActive: true,
   },
   {
     id: 't5',
     name: 'Carlos Ferreira',
-    role: 'Manutenção',
+    nickname: 'carlosferreira',
+    roleType: 'employee',
+    avatar: 'https://images.unsplash.com/photo-1463453091185-61582044d556?w=150&h=150&fit=crop&crop=face',
     phone: '(11) 98765-4325',
     email: 'carlos@hobbymap.com',
+    permissions: [],
     activities: [],
     isActive: false,
   },
